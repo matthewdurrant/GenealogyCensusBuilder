@@ -1,0 +1,39 @@
+﻿namespace CensusBuilder.Data
+{
+    public static class Census1851
+    {
+        public static string Data => @"Name: John Grimwood
+Sex: Male
+Age: 74
+Event Date: 1851
+Event Place: Great Whelnetham, Suffolk, England
+Registration District: Thingoe
+Event Type: Census
+Birth Year (Estimated): 1777
+Birthplace: Stowmarket, Suffolk
+Marital Status: Married
+Occupation: Shoemaker
+Relationship to Head of Household: Head
+Page Number: 27
+Piece/Folio: 1791 / 103
+Registration Number: HO107
+
+Household 	Role 	Sex 	Age 	Birthplace
+Charlotte Grimwood 	Wife 	F 	65 	Shelland, Suffolk
+Grimwood 	Son 	M 	18 	Mendlesham, Suffolk
+Richard Catchpole 	 	M 	33 	Rushbrook, Suffolk
+Eliza Catchpole 	 	F 	35 	Mendlesham, Suffolk
+William Grimwood 	 	M 	10 	Gt Whelnetham, Suffolk
+
+Household Identifier: 1649941
+Line Number: 15
+Digital Folder Number: 101796714
+Microfilm Number: 101796714
+Image Number: 00201
+
+Citing this Record
+""England and Wales Census, 1851,"" database with images, FamilySearch (https://familysearch.org/ark:/61903/1:1:SGRN-4DL : 12 September 2019), John Grimwood, Great Whelnetham, Suffolk, England; citing Great Whelnetham, Suffolk, England, p. 27, from ""1851 England, Scotland and Wales census,"" database and images, findmypast (http://www.findmypast.com : n.d.); citing PRO HO 107, The National Archives of the UK, Kew, Surrey.
+
+            ";
+    }
+}

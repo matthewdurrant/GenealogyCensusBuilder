@@ -1,0 +1,72 @@
+﻿@page "/census"
+@using CensusBuilder.Data;
+@using CensusBuilder.Models;
+
+<PageTitle>Censuses</PageTitle>
+
+<h1>Censuses</h1>
+
+<button @onclick="(() => ShowPasteBox = true)">Add</button>
+
+@if (ShowPasteBox)
+{
+    <input @bind="PasteText">
+
+}
+
+@foreach (Census census in Database.Censuses)
+{
+    <h2>@census.Name</h2>
+    <h3>@census.Date</h3>
+
+    @foreach (var place in census.ByPlace())
+    {
+        <h4>@place.Place</h4>
+        {
+            @foreach (var household in place.CensusRecords)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Sex</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Birth Year</th>
+                            <th scope="col">Birthplace</th>
+                            <th scope="col">Occupation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var person in household.People)
+                        {
+                            <tr>
+                                <td>@person.Name</td>
+                                <td>@person.Role</td>
+                                <td>@person.Sex</td>
+                                <td>@person.Age</td>
+                                <td>@person.GetBirthRange(census)</td>
+                                <td>@person.Birthplace</td>
+                                <td>@person.Occupation</td>
+                            </tr>                            
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+    }
+}
+
+@code {
+    public bool ShowPasteBox { get; set; }
+    public string PasteText { get; set; }
+
+    public void ProcessPasteText()
+    {
+        Database.AddFromText(PasteText);
+        StateHasChanged();
+    }
+
+    [Inject]
+    public Database Database { get; set; }
+}
