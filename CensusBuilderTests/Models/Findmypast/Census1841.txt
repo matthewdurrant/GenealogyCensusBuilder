@@ -1,0 +1,39 @@
+First name(s)	Last name	Sex	Age	Birth year	Birth place
+John	Grimwood	Male	60	1781	Suffolk, England
+Charlotte	Grimwood	Female	55	1786	Suffolk, England
+Elizabeth	Grimwood	Female	20	1821	Suffolk, England
+Sarah	Grimwood	Female	19	1822	Suffolk, England
+Sydney	Grimwood	Male	15	1826	Suffolk, England
+John	Grimwood	Male	13	1828	Suffolk, England
+Spooner	Grimwood	Male	8	1833	Suffolk, England
+Hannah	Grimwood	Female	2	1839	Suffolk, England
+William	Grimwood	Male	1	1840	Suffolk, England
+
+First name(s)	Charlotte
+Last name	Grimwood
+Sex	Female
+Age	55
+Birth year	1786
+Birth county	Suffolk
+Birth county as transcribed	SUFFOLK
+Birth place other	England
+Occupation	-
+Full address	Sicklesmere Hamlet, Great Whelnetham, Thingoe, Suffolk, England
+Street	Sicklesmere Hamlet
+Parish or township	Great Whelnetham
+County	Suffolk
+Country	England
+Registration district	Thingoe
+Sub district	Rougham
+Family member first name(s)	John, Hannah, Sarah, Elizabeth, Sydney, William, Spooner
+Family member last name	Grimwood
+Archive reference	HO107
+Piece number	1036
+Book number	23
+Folio number	13
+Page number	21
+Schedule	1963
+Record set	1841 England, Wales & Scotland Census
+Category	Census, land & surveys
+Subcategory	Census
+Collections from	Great Britain, England

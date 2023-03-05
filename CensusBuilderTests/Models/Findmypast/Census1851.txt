@@ -1,0 +1,40 @@
+﻿First name(s)	Last name	Relationship	Marital status	Sex	Age	Birth year	Occupation	Birth place
+John	Grimwood	Head	Married	Male	74	1777	Shoemaker	Stowmarket, Suffolk, England
+Charlotte	Grimwood	Wife	Married	Female	65	1786	Shoemakers wife	Shelland, Suffolk, England
+-	Grimwood	Son	Unmarried	Male	18	1833	Farm labourer	Mendlesham, Suffolk, England
+Richard	Catchpole	Lodger	Married	Male	33	1818	Farm labourer	Suffolk, England
+Eliza	Catchpole	Wife	Married	Female	35	1816	Farm labourers wife	Mendlesham, Suffolk, England
+William	Grimwood	Son	Unmarried	Male	10	1841	Scholar	Suffolk, England
+
+First name(s)	Charlotte
+Last name	Grimwood
+Relationship	Wife
+Marital status	Married
+Sex	Female
+Age	65
+Birth year	1786
+Birth town	Shelland
+Birth town as transcribed	Shelland
+Birth county	Suffolk
+Birth county as transcribed	Suffolk
+Birth place	England
+Occupation	Shoemakers wife
+Full address	Sicklesmere, Great Whelnetham, Thingoe, Suffolk, England
+House name	Sicklesmere
+Street	-
+Parish	Great Whelnetham
+County	Suffolk
+Division of county	Western
+Country	England
+Registration district	Thingoe
+Sub district	Rougham
+Enumeration district	8
+Archive reference	HO107
+Piece number	1791
+Folio	103
+Page	27
+Schedule	100
+Record set	1851 England, Wales & Scotland Census
+Category	Census, land & surveys
+Subcategory	Census
+Collections from	Great Britain, England

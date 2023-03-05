@@ -1,20 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CensusBuilder.Models.FamilySearch;
-using CensusBuilder.Pages;
 using CensusBuilder.Models.Findmypast;
-
 namespace CensusBuilder.Models.FamilySearch.Tests
 {
     [TestClass()]
-    public class FamilySearchCensusRecordTests
+    public class FindmypastCensusRecordTests
     {
-        FamilySearchImporter importer = new();
-
+        FindmypastImporter importer = new();
 
         [TestMethod()]
         public void TextToRecord_1841Test()
         {
-            string[] text = File.ReadAllLines("C:\\Users\\sum01\\source\\repos\\CensusBuilder\\CensusBuilderTests\\bin\\Debug\\net7.0\\Models\\FamilySearch\\Census1841.txt");
+            string[] text = File.ReadAllLines("C:\\Users\\sum01\\source\\repos\\CensusBuilder\\CensusBuilderTests\\bin\\Debug\\net7.0\\Models\\Findmypast\\Census1841.txt");
             var censusRecord = importer.GetRecordFromText(text);
 
             Assertions(censusRecord);
@@ -24,7 +20,7 @@ namespace CensusBuilder.Models.FamilySearch.Tests
         [TestMethod()]
         public void TextToRecord_1851Test()
         {
-            string[] text = File.ReadAllLines("C:\\Users\\sum01\\source\\repos\\CensusBuilder\\CensusBuilderTests\\bin\\Debug\\net7.0\\Models\\FamilySearch\\Census1851.txt");
+            string[] text = File.ReadAllLines("C:\\Users\\sum01\\source\\repos\\CensusBuilder\\CensusBuilderTests\\bin\\Debug\\net7.0\\Models\\Findmypast\\Census1851.txt");
             var censusRecord = importer.GetRecordFromText(text);
 
             Assertions(censusRecord);
