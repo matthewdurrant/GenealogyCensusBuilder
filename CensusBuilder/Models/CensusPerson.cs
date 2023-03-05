@@ -9,6 +9,7 @@
         public int Age { get; set; }
         public string Birthplace { get; set; }
         public string Occupation { get; internal set; }
+        public int LineNumber { get; internal set; }
 
         public string GetBirthRange(Census census)
         {

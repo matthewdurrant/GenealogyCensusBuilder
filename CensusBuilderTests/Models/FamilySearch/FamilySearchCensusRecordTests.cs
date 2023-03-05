@@ -83,8 +83,6 @@ namespace CensusBuilder.Models.FamilySearch.Tests
             Assert.IsFalse(string.IsNullOrEmpty(censusRecord.CitationInfo.Citation));
             Assert.IsFalse(string.IsNullOrEmpty(censusRecord.CitationInfo.PieceFolio));
 
-            Assert.IsTrue(censusRecord.CitationInfo.LineNumber > 0);
-
             Assert.IsTrue(censusRecord.People.Any());
 
             Assert.IsFalse(censusRecord.People.Any(p => string.IsNullOrEmpty(p.Name)));

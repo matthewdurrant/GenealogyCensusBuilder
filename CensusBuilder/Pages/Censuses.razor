@@ -1,18 +1,13 @@
 ﻿@page "/census"
 @using CensusBuilder.Data;
 @using CensusBuilder.Models;
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <PageTitle>Censuses</PageTitle>
 
 <h1>Censuses</h1>
 
-<button @onclick="(() => ShowPasteBox = true)">Add</button>
 
-@if (ShowPasteBox)
-{
-    <input @bind="PasteText">
-
-}
 
 @foreach (Census census in Database.Censuses)
 {
@@ -25,9 +20,11 @@
         {
             @foreach (var household in place.CensusRecords)
             {
+                <h5>@household.Description</h5>
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">Line</th>
                             <th scope="col">Name</th>
                             <th scope="col">Role</th>
                             <th scope="col">Sex</th>
@@ -41,6 +38,7 @@
                         @foreach (var person in household.People)
                         {
                             <tr>
+                                <td>@person.LineNumber</td>
                                 <td>@person.Name</td>
                                 <td>@person.Role</td>
                                 <td>@person.Sex</td>
@@ -48,7 +46,7 @@
                                 <td>@person.GetBirthRange(census)</td>
                                 <td>@person.Birthplace</td>
                                 <td>@person.Occupation</td>
-                            </tr>                            
+                            </tr>               
                         }
                     </tbody>
                 </table>
@@ -58,13 +56,10 @@
 }
 
 @code {
-    public bool ShowPasteBox { get; set; }
-    public string PasteText { get; set; }
 
-    public void ProcessPasteText()
+    protected override async Task OnInitializedAsync()
     {
-        Database.AddFromText(PasteText);
-        StateHasChanged();
+        await Database.SetLocalStorage(localStorage);
     }
 
     [Inject]

@@ -7,7 +7,6 @@
         public string RegistrationNumber { get; set; }
         public int HouseholdIdentifier { get; set; }
         public int BookNumber { get; set; }
-        public int LineNumber { get; set; }
         public int DigitalFolderNumber { get; set; }
         public int ImageNumber { get; set; }
         public string Citation { get; set; }

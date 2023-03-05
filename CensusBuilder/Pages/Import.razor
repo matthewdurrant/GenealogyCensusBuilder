@@ -1,0 +1,108 @@
+﻿@using CensusBuilder.Data;
+@using CensusBuilder.Extensions;
+@using CensusBuilder.Models.FamilySearch;
+@using CensusBuilder.Models.Findmypast;
+@using CensusBuilder.Models;
+
+<h3>Import</h3>
+@if (!string.IsNullOrEmpty(ImportErrorMessage))
+{
+    <div class="alert alert-danger">
+        @ImportErrorMessage
+    </div>
+}
+
+
+<h4>FamilySearch</h4>
+
+<textarea @bind="FamilySearchText" />
+<button @onclick="async () => await ProcessTextInput(FamilySearchImporter, FamilySearchText)">Add</button>
+
+
+<h4>Findmypast</h4>
+
+<h5>
+    Household members
+</h5>
+<textarea @bind="FindMyPastHouseholdText" />
+
+<h5>
+    Main transcript
+</h5>
+<textarea @bind="FindMyPastTranscriptText" />
+<button @onclick="async () => await ProcessTextInput(FindmypastImporter, FindMyPastTranscriptText, FindMyPastHouseholdText)">Add</button>
+
+@if (LastImport is not null)
+{
+    <h4>Last import</h4>
+    <h5>@LastImport.Description</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Line</th>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Sex</th>
+                <th scope="col">Age</th>
+                <th scope="col">Birth Year</th>
+                <th scope="col">Birthplace</th>
+                <th scope="col">Occupation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var person in LastImport.People)
+            {
+                <tr>
+                    <td>@person.LineNumber</td>
+                    <td>@person.Name</td>
+                    <td>@person.Role</td>
+                    <td>@person.Sex</td>
+                    <td>@person.Age</td>
+                    <td>@person.GetBirthRange(LastImport.Census)</td>
+                    <td>@person.Birthplace</td>
+                    <td>@person.Occupation</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Inject]
+    public Database Database { get; set; }
+
+    private FindmypastImporter FindmypastImporter { get; set; }
+    private FamilySearchImporter FamilySearchImporter { get; set; }
+
+    private CensusRecord? LastImport { get; set; } = null;
+
+    public string FamilySearchText { get; set; }
+    private string ImportErrorMessage { get; set; }
+
+    public async Task ProcessTextInput(IResourceImporter importer, string text, string? additional = null)
+    {
+        if (!string.IsNullOrEmpty(text))
+        {
+            try
+            {
+                string[] textLines = text.GetRows();
+                CensusRecord record = importer.GetRecordFromText(textLines);
+                await Database.AddRecord(record);
+                StateHasChanged();
+            }
+            catch (Exception ex)
+            {
+                ImportErrorMessage = "Something went wrong. " + ex.Message;
+            }
+        }
+    }
+
+    public string FindMyPastHouseholdText { get; set; }
+    public string FindMyPastTranscriptText { get; set; }
+
+    public async Task ProcessFindmypast()
+    {
+        
+    }
+
+}

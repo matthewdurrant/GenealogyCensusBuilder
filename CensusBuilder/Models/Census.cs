@@ -5,7 +5,7 @@
         public DateTime Date { get; set; }
         public string Name { get; set; }
 
-        public List<CensusRecord> Records { get; set; }
+        public List<CensusRecord> Records { get; set; } = new();
 
         public static Census EnglandAndWales1841 => new Census
         {
