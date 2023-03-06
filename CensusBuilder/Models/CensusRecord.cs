@@ -7,9 +7,9 @@ namespace CensusBuilder.Models
         [JsonIgnore]
         public Census Census { get; set; }
         public CitationInfo CitationInfo { get; set; }
-        public string Place { get; set; }
+        public string FullAddress { get; set; }
         public string District { get; set; }
-        public string ResidenceNote { get; set; }
+        public string Street { get; set; }
 
         public string Description { get
             {

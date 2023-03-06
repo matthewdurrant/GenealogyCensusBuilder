@@ -37,27 +37,33 @@ namespace CensusBuilder.Data
 
         public List<Census> Censuses { get; set; } = new();
 
-        public async Task AddRecord(CensusRecord censusRecord)
+        public async Task AddRecord(CensusRecord newRecord)
+
         {
-            Census? existingCensus = Censuses.SingleOrDefault(c => c.Name == censusRecord.Census.Name && c.Date == censusRecord.Census.Date);
+            Census? existingCensus = Censuses.SingleOrDefault(c => c.Name == newRecord.Census.Name && c.Date == newRecord.Census.Date);
 
             if (existingCensus == null)
             {
-                Censuses.Add(censusRecord.Census);
-                existingCensus = Censuses.Single(c => c.Name == censusRecord.Census.Name && c.Date == censusRecord.Census.Date);
+                Censuses.Add(newRecord.Census);
+                existingCensus = Censuses.Single(c => c.Name == newRecord.Census.Name && c.Date == newRecord.Census.Date);
             }
 
             //Check if household has been added
-            CensusRecord? existingHousehold = existingCensus.Records.SingleOrDefault(r => r.CitationInfo.HouseholdIdentifier == censusRecord.CitationInfo.HouseholdIdentifier);
+            CensusRecord? existingHousehold = existingCensus.Records.SingleOrDefault(r => 
+                r.CitationInfo.PageNumber == newRecord.CitationInfo.PageNumber &&
+                r.CitationInfo.Piece == newRecord.CitationInfo.Piece &&
+                r.CitationInfo.Folio == newRecord.CitationInfo.Folio &&
+                r.Description == r.Description
+            );
 
             if (existingHousehold is null)
             {
-                existingCensus.Records.Add(censusRecord);
+                existingCensus.Records.Add(newRecord);
             }
             else
             {
                 //Update the existing person.
-                existingHousehold.UpdateFromRecord(censusRecord);
+                existingHousehold.UpdateFromRecord(newRecord);
             }
 
             await Save();
@@ -65,7 +71,7 @@ namespace CensusBuilder.Data
 
         public async Task Save()
         {
-            if (this.Censuses is not null && this.Censuses.Any())
+            if (localStore is not null && this.Censuses is not null && this.Censuses.Any())
             {
 
                 //Make sure any census records don't have a census property

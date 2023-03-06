@@ -1,6 +1,6 @@
 ﻿namespace CensusBuilder.Models.FamilySearch
 {
-    internal class FamilySearchCensusRecord
+    internal class FamilySearchCensusRecord : ICensusRecord
     {
         public string Name { get; set; }
         public string Sex { get; set; }
@@ -42,7 +42,8 @@
                 HouseholdIdentifier = HouseholdIdentifier,
                 ImageNumber = ImageNumber,
                 PageNumber = PageNumber,
-                PieceFolio = PieceFolio,
+                Piece = int.Parse(PieceFolio.Split('/')[0]),
+                Folio = int.Parse(PieceFolio.Split('/')[1]),
                 RegistrationNumber = RegistrationNumber,
             };
 
@@ -61,8 +62,8 @@
             {
                 Census = census,
                 District = this.RegistrationDistrict,
-                Place = this.EventPlace,
-                ResidenceNote = this.ResidenceNote,
+                FullAddress = $"{ResidenceNote}, {this.EventPlace}",
+                Street = this.ResidenceNote,
                 CitationInfo = citation,
                 People = censusPeople
             };

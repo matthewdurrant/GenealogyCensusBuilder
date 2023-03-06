@@ -4,14 +4,16 @@ namespace CensusBuilder.Extensions
 {
     public static class JsonObjectExtensions
     {
-        public static JsonObject AddTextToJsonObject(this JsonObject obj, string line)
+        public static JsonObject AddTextToJsonObject(this JsonObject obj, string line, string separator)
         {
-            string[] keyValuePair = line.Split(':');
+            string[] keyValuePair = line.Split(separator);
 
             if (keyValuePair.Length == 2)
             {
                 keyValuePair[0] = keyValuePair[0].Replace(" ", string.Empty);
                 keyValuePair[0] = keyValuePair[0].Replace("/", string.Empty);
+                keyValuePair[0] = keyValuePair[0].Replace("(", string.Empty);
+                keyValuePair[0] = keyValuePair[0].Replace(")", string.Empty);
                 keyValuePair[0] = keyValuePair[0].Trim();
                 keyValuePair[1] = keyValuePair[1].Trim();
 

@@ -40,7 +40,7 @@
 
         public IEnumerable<(string Place, IEnumerable<CensusRecord> CensusRecords)> ByPlace()
         {
-            return Records.GroupBy(r => r.Place).Select(r => (r.Key, r.AsEnumerable()));
+            return Records.GroupBy(r => r.FullAddress).Select(r => (r.Key, r.AsEnumerable()));
         }
     }
 }

@@ -8,7 +8,7 @@ namespace CensusBuilder.Models.FamilySearch
 {
     public class FamilySearchImporter : IResourceImporter
     {
-        public CensusRecord GetRecordFromText(string[] textLines)
+        public CensusRecord GetRecordFromText(List<string> textLines)
         {
             FamilySearchCensusRecord fsRecord = GetFSRecordFromString(textLines);
             CensusRecord censusRecord = fsRecord.ToCensusRecord();
@@ -17,34 +17,35 @@ namespace CensusBuilder.Models.FamilySearch
         }
        
 
-        internal static FamilySearchCensusRecord GetFSRecordFromString(string[] text)
+        internal static FamilySearchCensusRecord GetFSRecordFromString(List<string> text)
         {
             //Map each line to a JSON element
-            JsonObject jsonObj = new();
+            JsonObject jsonObjCensusRecord = new();
             List<FamilySearchCensusPerson> people = new List<FamilySearchCensusPerson>();
 
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 0; i < text.Count; i++)
             {
                 string line = text[i];
                 if (i > 1 && text[i-1] == "Citing this Record") //If the previous line was "Citing this record", this is the citation
                 {
-                    jsonObj.Add(nameof(FamilySearchCensusRecord.Citation), line);
+                    jsonObjCensusRecord.Add(nameof(FamilySearchCensusRecord.Citation), line);
                 }
                 else if (line.Contains(':')) //normal Label: Value line
                 {
-                    jsonObj = jsonObj.AddTextToJsonObject(line);
+                    jsonObjCensusRecord = jsonObjCensusRecord.AddTextToJsonObject(line, ":");
                 }
                 else if (line.Contains("\t")) //This is a table line
                 {
-                    FamilySearchCensusPerson? censusPerson = TextToCensusPerson(line);
+                    FamilySearchCensusPerson? censusPerson = TableRowToCensusPerson(line);
                     if (censusPerson is not null)
                         people.Add(censusPerson);
                 }
             }
 
-            FamilySearchCensusRecord record = jsonObj.Deserialize<FamilySearchCensusRecord>();
+            FamilySearchCensusRecord record = jsonObjCensusRecord.Deserialize<FamilySearchCensusRecord>();
             record.People = people;
 
+            //Familysearch doesn't include the "main" record in the "secondary" table of people that comes with the main record
             //Add the original person from the "main" record to the table of people
             record.People.Add(new FamilySearchCensusPerson()
             {
@@ -60,7 +61,7 @@ namespace CensusBuilder.Models.FamilySearch
             return record;
         }
 
-        private static FamilySearchCensusPerson? TextToCensusPerson(string text)
+        private static FamilySearchCensusPerson? TableRowToCensusPerson(string text)
         {
             string[] values = text.Split(" \t");
             if (values[0] == "Household")

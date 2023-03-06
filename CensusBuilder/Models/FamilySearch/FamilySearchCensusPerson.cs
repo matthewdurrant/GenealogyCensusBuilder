@@ -1,6 +1,6 @@
 ﻿namespace CensusBuilder.Models.FamilySearch
 {
-    internal class FamilySearchCensusPerson
+    internal class FamilySearchCensusPerson : ICensusPerson
     {
         public string Name { get; set; }
         public string? Role { get; set; }
@@ -10,7 +10,7 @@
         public string Occupation { get; set; }
         public int LineNumber { get; internal set; }
 
-        internal Models.CensusPerson ToCensusPerson()
+        public Models.CensusPerson ToCensusPerson()
         {
             return new Models.CensusPerson()
             {

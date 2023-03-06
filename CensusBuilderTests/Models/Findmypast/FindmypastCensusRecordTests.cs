@@ -11,7 +11,7 @@ namespace CensusBuilder.Models.FamilySearch.Tests
         public void TextToRecord_1841Test()
         {
             string[] text = File.ReadAllLines("C:\\Users\\sum01\\source\\repos\\CensusBuilder\\CensusBuilderTests\\bin\\Debug\\net7.0\\Models\\Findmypast\\Census1841.txt");
-            var censusRecord = importer.GetRecordFromText(text);
+            var censusRecord = importer.GetRecordFromText(text.ToList());
 
             Assertions(censusRecord);
         }
@@ -21,7 +21,7 @@ namespace CensusBuilder.Models.FamilySearch.Tests
         public void TextToRecord_1851Test()
         {
             string[] text = File.ReadAllLines("C:\\Users\\sum01\\source\\repos\\CensusBuilder\\CensusBuilderTests\\bin\\Debug\\net7.0\\Models\\Findmypast\\Census1851.txt");
-            var censusRecord = importer.GetRecordFromText(text);
+            var censusRecord = importer.GetRecordFromText(text.ToList());
 
             Assertions(censusRecord);
 
@@ -36,7 +36,8 @@ namespace CensusBuilder.Models.FamilySearch.Tests
             Assert.IsFalse(censusRecord.Census.Date == default);
             Assert.IsNotNull(censusRecord.CitationInfo);
             Assert.IsFalse(string.IsNullOrEmpty(censusRecord.CitationInfo.Citation));
-            Assert.IsFalse(string.IsNullOrEmpty(censusRecord.CitationInfo.PieceFolio));
+            Assert.IsFalse(censusRecord.CitationInfo.Piece == 0);
+            Assert.IsFalse(censusRecord.CitationInfo.Folio == 0);
 
             Assert.IsTrue(censusRecord.People.Any());
 
@@ -46,6 +47,8 @@ namespace CensusBuilder.Models.FamilySearch.Tests
             Assert.IsFalse(censusRecord.People.Any(p => string.IsNullOrEmpty(p.Birthplace)));
 
             Assert.IsFalse(censusRecord.People.Where(p => p.Id == 0).Count() > 1);
+
+            Assert.IsTrue(censusRecord.CitationInfo.PageNumber > 0);
         }
     }
 }

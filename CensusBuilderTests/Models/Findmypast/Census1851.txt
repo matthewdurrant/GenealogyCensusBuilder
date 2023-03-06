@@ -1,4 +1,4 @@
-﻿First name(s)	Last name	Relationship	Marital status	Sex	Age	Birth year	Occupation	Birth place
+First name(s)	Last name	Relationship	Marital status	Sex	Age	Birth year	Occupation	Birth place
 John	Grimwood	Head	Married	Male	74	1777	Shoemaker	Stowmarket, Suffolk, England
 Charlotte	Grimwood	Wife	Married	Female	65	1786	Shoemakers wife	Shelland, Suffolk, England
 -	Grimwood	Son	Unmarried	Male	18	1833	Farm labourer	Mendlesham, Suffolk, England

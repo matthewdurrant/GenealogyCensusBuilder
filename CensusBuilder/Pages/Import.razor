@@ -85,7 +85,11 @@
         {
             try
             {
-                string[] textLines = text.GetRows();
+                List<string> textLines = text.GetRows();
+
+                if (additional is not null) //Add the additional lines too
+                    textLines.AddRange(additional.GetRows());
+
                 CensusRecord record = importer.GetRecordFromText(textLines);
                 await Database.AddRecord(record);
                 StateHasChanged();

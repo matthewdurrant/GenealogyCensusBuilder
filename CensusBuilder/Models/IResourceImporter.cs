@@ -2,6 +2,6 @@
 {
     public interface IResourceImporter
     {
-        CensusRecord GetRecordFromText(string[] textRows);
+        CensusRecord GetRecordFromText(List<string> textRows);
     }
 }
