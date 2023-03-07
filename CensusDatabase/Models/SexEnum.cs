@@ -1,4 +1,4 @@
-﻿namespace CensusBuilder.Models
+﻿namespace CensusDatabase.Models
 {
     public enum SexEnum
     {

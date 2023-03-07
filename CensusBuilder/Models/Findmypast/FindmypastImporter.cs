@@ -1,14 +1,13 @@
-﻿using CensusBuilder.Models.FamilySearch;
-using static System.Net.Mime.MediaTypeNames;
-using System.Text.Json.Nodes;
+﻿using System.Text.Json.Nodes;
 using CensusBuilder.Extensions;
 using System.Text.Json;
+using CensusDatabase.Models;
 
 namespace CensusBuilder.Models.Findmypast
 {
     public class FindmypastImporter : IResourceImporter
     {
-        public Models.CensusRecord GetRecordFromText(List<string> textLines)
+        public CensusRecord GetRecordFromText(List<string> textLines)
         {
             FindmypastCensusRecord fsRecord = GetFMPRecordFromString(textLines);
             CensusRecord censusRecord = fsRecord.ToCensusRecord();

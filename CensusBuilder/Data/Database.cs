@@ -1,6 +1,7 @@
 ﻿using Blazored.LocalStorage;
 using CensusBuilder.Models;
 using CensusBuilder.Models.FamilySearch;
+using CensusDatabase.Models;
 using Microsoft.AspNetCore.Components;
 using System.Reflection.Metadata.Ecma335;
 using System.Text.Json;

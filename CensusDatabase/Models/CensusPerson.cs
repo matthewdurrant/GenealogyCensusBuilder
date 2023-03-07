@@ -1,15 +1,15 @@
-﻿namespace CensusBuilder.Models
+﻿namespace CensusDatabase.Models
 {
     public class CensusPerson
     {
-        public int Id { get; internal set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Role { get; set; }
         public SexEnum Sex { get; set; }
         public int Age { get; set; }
         public string Birthplace { get; set; }
-        public string Occupation { get; internal set; }
-        public int LineNumber { get; internal set; }
+        public string Occupation { get; set; }
+        public int LineNumber { get; set; }
 
         public string GetBirthRange(Census census)
         {

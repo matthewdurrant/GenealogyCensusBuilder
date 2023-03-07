@@ -1,4 +1,6 @@
-﻿namespace CensusBuilder.Models
+﻿using CensusDatabase.Models;
+
+namespace CensusBuilder.Models
 {
     public interface IResourceImporter
     {

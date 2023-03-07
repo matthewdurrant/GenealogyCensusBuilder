@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace CensusBuilder.Models
+namespace CensusDatabase.Models
 {
     public class CensusRecord
     {
@@ -25,7 +25,7 @@ namespace CensusBuilder.Models
         public List<CensusPerson> People { get; set; } = new();
 
         //TODO this should probably sit at the provider-specific level
-        internal void UpdateFromRecord(CensusRecord newInformation)
+        public void UpdateFromRecord(CensusRecord newInformation)
         {
             foreach (CensusPerson person in newInformation.People)
             {

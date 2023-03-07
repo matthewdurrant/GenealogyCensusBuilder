@@ -1,4 +1,4 @@
-﻿namespace CensusBuilder.Models
+﻿namespace CensusDatabase.Models
 {
     public class CitationInfo
     {
@@ -11,6 +11,6 @@
         public int DigitalFolderNumber { get; set; }
         public int ImageNumber { get; set; }
         public string Citation { get; set; }
-        public int Schedule { get; internal set; }
+        public int Schedule { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CensusBuilder.Models
+﻿namespace CensusDatabase.Models
 {
     internal interface ICensusPerson
     {

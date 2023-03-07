@@ -2,6 +2,7 @@
 using CensusBuilder.Models.FamilySearch;
 using CensusBuilder.Pages;
 using CensusBuilder.Models.Findmypast;
+using CensusDatabase.Models;
 
 namespace CensusBuilder.Models.FamilySearch.Tests
 {

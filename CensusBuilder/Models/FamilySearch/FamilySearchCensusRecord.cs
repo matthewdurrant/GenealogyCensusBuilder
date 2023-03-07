@@ -1,4 +1,6 @@
-﻿namespace CensusBuilder.Models.FamilySearch
+﻿using CensusDatabase.Models;
+
+namespace CensusBuilder.Models.FamilySearch
 {
     internal class FamilySearchCensusRecord : ICensusRecord
     {
@@ -25,7 +27,7 @@
         public string Citation { get; set; }
         public List<FamilySearchCensusPerson> People { get; set; } = new();
 
-        public Models.CensusRecord ToCensusRecord()
+        public CensusRecord ToCensusRecord()
         {
             Census? census = this.EventDate switch
             {
@@ -47,7 +49,7 @@
                 RegistrationNumber = RegistrationNumber,
             };
 
-            List<Models.CensusPerson> censusPeople = People
+            List<CensusPerson> censusPeople = People
                 .Select(p => p.ToCensusPerson())
                 .OrderByDescending(p => p.Age)
                 .ToList();
@@ -58,7 +60,7 @@
                 censusPeople[i].Id = i;
             }
 
-            Models.CensusRecord record = new()
+            CensusRecord record = new()
             {
                 Census = census,
                 District = this.RegistrationDistrict,

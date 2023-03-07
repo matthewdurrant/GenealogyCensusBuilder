@@ -1,4 +1,4 @@
-﻿namespace CensusBuilder.Models
+﻿namespace CensusDatabase.Models
 {
     public interface ICensusRecord
     {

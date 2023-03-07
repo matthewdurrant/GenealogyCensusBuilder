@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CensusBuilder\CensusBuilder.csproj" />
+    <ProjectReference Include="..\CensusDatabase\CensusDatabase.csproj" />
   </ItemGroup>
 
   <ItemGroup>

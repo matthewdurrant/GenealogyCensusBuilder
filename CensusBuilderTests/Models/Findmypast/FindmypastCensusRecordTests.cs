@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CensusBuilder.Models.Findmypast;
+using CensusDatabase.Models;
+
 namespace CensusBuilder.Models.FamilySearch.Tests
 {
     [TestClass()]

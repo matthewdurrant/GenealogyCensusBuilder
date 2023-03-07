@@ -1,4 +1,6 @@
-﻿namespace CensusBuilder.Models.Findmypast
+﻿using CensusDatabase.Models;
+
+namespace CensusBuilder.Models.Findmypast
 {
     internal class FindmypastCensusRecord : ICensusRecord
     {
@@ -58,7 +60,7 @@
                 Citation = "TODO Generate Citation",
             };
 
-            List<Models.CensusPerson> censusPeople = People
+            List<CensusPerson> censusPeople = People
                 .Select(p => p.ToCensusPerson())
                 .OrderByDescending(p => p.Age)
                 .ToList();
@@ -69,7 +71,7 @@
                 censusPeople[i].Id = i;
             }
 
-            Models.CensusRecord record = new()
+            CensusRecord record = new()
             {
                 Census = census,
                 District = this.RegistrationDistrict,

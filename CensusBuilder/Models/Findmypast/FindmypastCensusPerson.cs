@@ -1,9 +1,8 @@
-﻿using System.Data;
-using System.Xml.Linq;
+﻿using CensusDatabase.Models;
 
 namespace CensusBuilder.Models.Findmypast
 {
-    internal class FindmypastCensusPerson : ICensusPerson
+    internal class FindmypastCensusPerson : CensusPerson
     {
         public string FirstName { get; internal set; }
         public string LastName { get; internal set; }
@@ -15,9 +14,9 @@ namespace CensusBuilder.Models.Findmypast
         public string Occupation { get; internal set; }
         public string MaritalStatus { get; internal set; }
 
-        public Models.CensusPerson ToCensusPerson()
+        public CensusPerson ToCensusPerson()
         {
-            return new Models.CensusPerson()
+            return new CensusPerson()
             {
                 Name = $"{FirstName} {LastName}",
                 Age = Age,
