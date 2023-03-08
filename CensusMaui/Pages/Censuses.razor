@@ -1,0 +1,61 @@
+﻿@page "/censuses"
+@using CensusMaui.Models;
+@using CensusData.Models;
+@using CensusData;
+
+<PageTitle>Censuses</PageTitle>
+
+<h1>Censuses</h1>
+
+
+
+@foreach (Census census in Database.GetCensuses())
+{
+    <h2>@census.Name</h2>
+    <h3>@census.Date</h3>
+
+    @foreach (var place in census.ByPlace())
+    {
+        <h4>@place.Place</h4>
+        {
+            @foreach (var household in place.CensusRecords)
+            {
+                <h5>@household.Description</h5>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Line</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Sex</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Birth Year</th>
+                            <th scope="col">Birthplace</th>
+                            <th scope="col">Occupation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var person in household.People)
+                        {
+                            <tr>
+                                <td>@person.LineNumber</td>
+                                <td>@person.Name</td>
+                                <td>@person.Role</td>
+                                <td>@person.Sex</td>
+                                <td>@person.Age</td>
+                                <td>@person.GetBirthRange(census)</td>
+                                <td>@person.Birthplace</td>
+                                <td>@person.Occupation</td>
+                            </tr>               
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+    }
+}
+
+@code {
+    [Inject]
+    public CensusData.CensusDatabase Database { get; set; }
+}

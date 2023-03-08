@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusBuilder", "CensusBuil
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusBuilderTests", "CensusBuilderTests\CensusBuilderTests.csproj", "{2A066FAE-AD05-4877-B53C-147418E38A37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CensusDatabase", "CensusDatabase\CensusDatabase.csproj", "{63741016-45AB-43BF-930F-00286094172A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusMaui", "CensusMaui\CensusMaui.csproj", "{A754B32E-56AB-444B-B04C-85044BD6F1F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CensusData", "CensusData\CensusData.csproj", "{A0CDBB48-9B89-48BE-86B8-54E2629A4754}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,16 @@ Global
 		{2A066FAE-AD05-4877-B53C-147418E38A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A066FAE-AD05-4877-B53C-147418E38A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A066FAE-AD05-4877-B53C-147418E38A37}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63741016-45AB-43BF-930F-00286094172A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63741016-45AB-43BF-930F-00286094172A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63741016-45AB-43BF-930F-00286094172A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63741016-45AB-43BF-930F-00286094172A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A754B32E-56AB-444B-B04C-85044BD6F1F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A754B32E-56AB-444B-B04C-85044BD6F1F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A754B32E-56AB-444B-B04C-85044BD6F1F6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A754B32E-56AB-444B-B04C-85044BD6F1F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A754B32E-56AB-444B-B04C-85044BD6F1F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A754B32E-56AB-444B-B04C-85044BD6F1F6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A0CDBB48-9B89-48BE-86B8-54E2629A4754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0CDBB48-9B89-48BE-86B8-54E2629A4754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0CDBB48-9B89-48BE-86B8-54E2629A4754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0CDBB48-9B89-48BE-86B8-54E2629A4754}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

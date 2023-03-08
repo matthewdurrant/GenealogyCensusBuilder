@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CensusBuilder.Models.FamilySearch;
-using CensusDatabase.Models;
+using CensusData.Models;
 
-namespace CensusDatabase.Tests
+namespace CensusData.Tests
 {
     [TestClass()]
     public class CensusDatabaseTests

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CensusBuilder.Models.Findmypast;
-using CensusDatabase.Models;
+using CensusData.Models;
+using CensusData;
 
 namespace CensusBuilder.Models.FamilySearch.Tests
 {
@@ -13,7 +14,7 @@ namespace CensusBuilder.Models.FamilySearch.Tests
         public void TextToRecord_1841Test()
         {
             string[] text = File.ReadAllLines("C:\\Users\\sum01\\source\\repos\\CensusBuilder\\CensusBuilderTests\\bin\\Debug\\net7.0\\Models\\Findmypast\\Census1841.txt");
-            var censusRecord = importer.GetRecordFromText(text.ToList());
+            CensusRecord? censusRecord = importer.GetRecordFromText(text.ToList());
 
             Assertions(censusRecord);
         }
@@ -23,7 +24,7 @@ namespace CensusBuilder.Models.FamilySearch.Tests
         public void TextToRecord_1851Test()
         {
             string[] text = File.ReadAllLines("C:\\Users\\sum01\\source\\repos\\CensusBuilder\\CensusBuilderTests\\bin\\Debug\\net7.0\\Models\\Findmypast\\Census1851.txt");
-            var censusRecord = importer.GetRecordFromText(text.ToList());
+            CensusRecord? censusRecord = importer.GetRecordFromText(text.ToList());
 
             Assertions(censusRecord);
 

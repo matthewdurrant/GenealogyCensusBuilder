@@ -1,11 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CensusBuilder.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CensusBuilder.Pages;
+using CensusData;
 using CensusBuilder.Models.FamilySearch;
 using CensusBuilder.Models.Findmypast;
 
